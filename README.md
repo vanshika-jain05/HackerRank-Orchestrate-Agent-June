@@ -159,3 +159,24 @@ Before submitting, confirm:
 After submission, the AI Judge may ask about your approach, implementation decisions, model usage, evaluation strategy, and how you used AI while building the solution.
 
 Be prepared to explain your solution in detail.
+
+
+
+## My Solution
+
+### Setup
+pip install pandas groq python-dotenv
+
+Add your API key to `.env`:
+GROQ_API_KEY=your_key
+
+### Run
+cd code
+
+python main.py
+### Approach
+Two-stage LLM pipeline using Groq LLaMA 4 Scout vision model:
+1. claim_extractor — extracts issue type from conversation
+2. vision_analyser — multimodal vision analysis of images vs claim
+3. evidence_retriever — structured retrieval from evidence_requirements.csv
+4. post_processor — validates fields, applies user history risk flags
